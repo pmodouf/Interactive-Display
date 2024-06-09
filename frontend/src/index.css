@@ -1,0 +1,972 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
+.navigation-container {
+  position: fixed; /* Or absolute, based on your layout needs */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nav-button {
+  position: absolute;
+  width: 80px; /* Adjust based on your preference */
+  height: 80px; /* Making it round */
+  border-radius: 50%; /* Round shape */
+  background-color: #007bff; /* Bootstrap primary color */
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none; /* Remove underline from links */
+  transition: transform 0.2s; /* Smooth transform transition */
+  font-size: 0.8rem;
+  animation: pulse 2s infinite;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5); /* Adding shadow */
+}
+
+.nav-button:hover {
+  transform: scale(1.1);
+  background-color: #0056b3;
+}
+@keyframes rotateImage {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+.center-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(0deg); /* Centered and ready for rotation */
+  width: 250px; /* Adjust based on your image */
+  height: auto; /* To maintain aspect ratio */
+  animation: rotateImage 20s linear infinite;
+}
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  padding: 20px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.add-product-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.input, .submit-button {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.submit-button {
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  border: none;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.delete-form-container {
+  animation: fadeIn 1s ease-in-out; /* Reuse the fadeIn animation */
+}
+
+.delete-product-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  max-width: 400px; /* Slightly narrower than add-product-form for visual distinction */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #f8f9fa; /* A light background to differentiate from add product form */
+}
+
+.delete-success-message {
+  color: green; /* Success message in green */
+  text-align: center; /* Center the success message */
+  margin-top: 10px; /* Some space above the message */
+}
+.product-card-link {
+  width: 18rem;
+  margin: 10px;
+  text-decoration: none; /* Remove link underlining */
+  color: inherit; /* Prevent default link colors */
+}
+
+.product-card {
+  overflow: hidden;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+
+.product-card-img {
+  width: 300px; /* Set the desired width */
+  height: 300px; /* Set the desired height */
+  object-fit: cover; /* Cover the card area without stretching */
+  background-color: white; /* Add white padding as needed */
+}
+
+
+.text-shadow {
+  text-shadow: 1px 1px 8px rgba(0,0,0,0.7); /* Ensure legibility */
+}
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(0, 123, 255, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 123, 255, 0);
+  }
+}
+
+/* index.css */
+.background-image-container {
+  background-size: 100%; /* Maintain the image's original size */
+  background-repeat: no-repeat; /* Prevent the image from repeating */
+  background-position: center center; /* Center the image */
+  width: 100%; /* Cover the width of the parent */
+  height: 100vh; /* Cover the height of the viewport */
+  position: fixed; /* Ensure it covers the entire viewport */
+  top: 0;
+  left: 0;
+  z-index: -1; /* Ensure it stays behind other content */
+}
+.navbar-container {
+  position: fixed; /* Fixed at the top */
+  top: 0; /* Align to the top */
+  left: 0; /* Start from the left */
+  width: 100%; /* Span the full width of the viewport */
+  display: flex;
+  z-index: 1000;/* Use flexbox for horizontal alignment */
+  justify-content: center; /* Center the buttons horizontally */
+  align-items: center; /* Center the buttons vertically within the nav */
+  padding: 10px 0; /* Add some padding at the top and bottom */
+}
+
+.navbar-button {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #007bff; /* Adjust if you're using a gradient instead */
+  background-image: linear-gradient(to top left, #007bff, #0056b3); /* subtle gradient */
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  margin: 10px 1%;
+  transition: transform 0.2s, box-shadow 0.2s; /* Smooth transitions for transform and shadow */
+  font-size: 0.8rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* stronger shadow for depth */
+  border: 1px solid #004085; /* subtle border for added depth */
+}
+
+.navbar-button:hover {
+  transform: scale(1.05); /* Slightly larger on hover for a "press" effect */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5); /* deeper shadow on hover */
+  background-image: linear-gradient(to top left, #0056b3, #004095); /* adjust gradient for hover */
+}
+
+.main-content {
+  padding-top: 10%; /* Ser till att navbar itne täcks över */
+}
+.main-content2 {
+  padding-top: 15%; /* Creates space above your text */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%; /* Adjust width as needed */
+  margin: auto;
+}
+
+.text-background {
+  background-color: #f0f0f0; /* Light grey background */
+  padding: 20px; /* Add some padding inside the div */
+  border-radius: 8px; /* Optional: adds rounded corners to the div */
+}
+.contact-card {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* subtle shadow */
+  border-radius: 10px; /* rounded corners */
+  margin: 20px; /* space between cards */
+  max-width: 540px; /* maximum width */
+  min-width: 300px; /* minimum width */
+  width: 100%; /* ensure it takes the full width of the container up to max-width */
+}
+
+.contact-card .card-body {
+  display: flex;
+  flex-direction: row; /* align items horizontally */
+  justify-content: space-between; /* space between text and image */
+  align-items: center;
+}
+
+.text-area {
+  flex-grow: 1; /* allow text area to fill available space */
+  margin-right: 20px; /* space between text and image */
+}
+
+.contact-card-img {
+  height: 200px; /* fixed height */
+  object-fit: cover; /* maintain aspect ratio without stretching */
+  width: auto; /* adjust width automatically */
+  max-width: 200px; /* maximum width for the image */
+  border-radius: 10px; /* rounded corners for the image */
+}
+
+.text-area .card-title {
+  font-size: 1.25rem; /* larger title */
+  color: #007bff; /* theme color */
+}
+
+@media (max-width: 768px) {
+  .contact-card {
+    margin: 10px 0; /* less space on smaller screens */
+    flex-direction: column; /* stack elements vertically on smaller screens */
+  }
+
+  .text-area {
+    margin-right: 0; /* remove margin-right on smaller screens */
+    margin-bottom: 10px; /* add space below text area on smaller screens */
+  }
+
+  .contact-card .card-body {
+    flex-direction: column; /* align items vertically on smaller screens */
+  }
+}
+.label-bold {
+  font-weight: bold;
+}
+
+.contact-card:hover {
+  transform: translateY(-5px); /* slight lift */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+.flip-card {
+  background-color: transparent;
+  width: 500px; /* Adjust based on your design */
+  height: 200px; /* Adjust based on your design */
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.flip-card.flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+
+  color: black;
+}
+
+.flip-card-back {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Enhanced shadow for more depth */
+  border: 2px solid #007bff; /* Prominent border with a theme color */
+  border-radius: 10px; /* Rounded corners */
+  margin: 20px; /* Space between cards */
+  width: 500px; /* Maximum width */
+  height: 100%;
+  color: black;
+  transform: rotateY(180deg);
+  
+  align-items: center; /* Center content vertically */
+
+  padding: 20px; /* Padding for inner content, adjust as needed */
+  background-color: white; /* Background color for contrast, adjust as needed */
+}
+
+.loop-image-container {
+  display: flex; /* Use flexbox */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  position: relative;
+  height: 400px; /* Set the desired height */
+  overflow: hidden; /* Hide overflow to maintain clean appearance */
+}
+
+.loop-image {
+  position: absolute; /* Maintain absolute positioning for fade effect */
+  max-height: 100%; /* Ensure image does not exceed container height */
+  width: auto; /* Adjust width according to proportions */
+  transition: opacity 1s ease-in-out; /* Smooth transition for the fade effect */
+  opacity: 0; /* Start with the image invisible */
+}
+
+.loop-visible {
+  opacity: 1;
+}
+
+.loop-hidden {
+  opacity: 0;
+}
+/* StylishText.css */
+/* Example custom font */
+
+
+.stylish-text {
+  font-family: 'Open Sans', sans-serif;
+  color: #333;
+  padding: 20px;
+  text-align: inherit;
+  animation: fadeIn 2s ease-in-out;
+  font-weight: 700;
+  /* 3D Effect without a traditional shadow look */
+
+}
+
+/* Simple fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.back-arrow {
+  position: fixed; /* or absolute, depending on your layout */
+  top: 30px;
+  left: 30px;
+  font-size: 24px; /* Adjust the size as needed */
+  color: #007bff; /* Adjust the color as needed */
+  text-decoration: none; /* Removes underline from the link */
+  padding: 15px; /* Adjust padding to ensure the circle is round */
+  border-radius: 50%; /* This makes the container round */
+  background: #f8f9fa; /* A light background */
+  border: 1px solid #dee2e6; /* A subtle border */
+  display: flex; /* Enables center alignment of the icon */
+  justify-content: center; /* Centers the icon horizontally */
+  align-items: center; /* Centers the icon vertically */
+  width: 50px; /* Equal width and height make the circle perfectly round */
+  height: 50px; /* Equal width and height make the circle perfectly round */
+}
+
+.info-screen-container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh; /* Adjust based on your content */
+  overflow: hidden; /* Hide overflow */
+}
+
+.labbs-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.labbs-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.labb-container {
+  display: flex;
+  align-items: flex-start; /* Align items to the start to prevent overlap with text */
+  justify-content: space-between;
+  margin: 20px;
+  width: 100%;
+  position: relative;
+}
+
+.labb-info {
+  text-align: center;
+  padding: 20px;
+  flex-grow: 1;
+  order: 2;
+  background-color: #f0f0f0; /* Slightly grey background */
+  border-radius: 8px; /* Optional: adds rounded corners to the background */
+}
+
+.labb-image {
+  height: 200px;
+  object-fit: contain;
+  flex-shrink: 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow to images */
+  margin: 10px; /* Add some space around images */
+}
+
+.left {
+  order: 1; /* Ensures this image is always to the left */
+}
+
+.right {
+  order: 3; /* Ensures this image is always to the right */
+  margin-top: 50px; /* Lower the right image as requested */
+}
+.clock-container {
+  position: fixed; /* or absolute, depending on your layout */
+  top: 20px;
+  right: 20px;
+  height: 150px;
+  width: 150px;
+  font-size: 2rem; /* Adjust as needed */
+  display: flex; /* Use flexbox for alignment */
+  flex-direction: column; /* Stack children vertically */
+  align-items: center; /* Center-align the flex items horizontally */
+  justify-content: center; /* Center-align the flex items vertically */
+
+  color: black; /* Sets the text color */
+  border-radius: 20px;
+  white-space: nowrap; /* Prevents the text from wrapping */
+  background: linear-gradient(to right,  #ccf2dd, #c7c7eb);
+  box-shadow: 0 10px 15px rgb(0 0 0 / 25%);
+
+}
+
+.clock-date {
+  margin-top: auto; /* Pushes the date to the bottom */
+  margin-bottom: 20px; /* 10px from the bottom */
+  font-size: 1.2rem;
+  color: #000;
+  text-align: center; /* Ensures text is centered */
+}
+
+/* Add this to push the time up a bit */
+.clock-time {
+  margin-top: 20px; /* 10px from the top */
+}
+
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-rows: auto 1fr auto;
+  justify-content: center;
+  align-items: center;
+  gap: 10px; /* Adjust based on your spacing preference */
+}
+
+.top-row, .bottom-row {
+  grid-column: 1 / -1; /* Stretch across all columns */
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* Space between images */
+}
+.middle-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-column: 1 / -1; /* Ensure it spans all columns for alignment */
+  width: 100%; /* Full width to align with the grid's centering */
+}
+.side-image {
+  height: 100px; /* Fixed height for side images */
+  /* No longer explicitly placing these images in grid rows/columns */
+}
+
+.left {
+  grid-column: 1 / 2;
+}
+
+.right {
+  grid-column: 3 / 4;
+}
+
+.react-youtube {
+  grid-column: 2 / 3;
+  z-index: 2;
+  width: 100%;
+  max-width: 640px; /* Adjust if necessary for your design */
+  aspect-ratio: 16 / 9; /* Maintain aspect ratio */
+}
+
+
+
+
+.labb-screen-container {
+  position: relative;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.quiz-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+.quiz-image-container {
+  position: relative;
+  overflow: hidden;
+  /* Set a specific height or use padding to maintain aspect ratio if images are dynamic */
+  height: 200px; /* Example fixed height, adjust as needed */
+  width: 100%; /* Adjust width as needed or keep it responsive */
+}
+
+.quiz-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  max-height: 200px;
+  width: auto; /* Adjust to maintain aspect ratio */
+  margin: auto; /* This centers the image in both axes if container has a defined height */
+  max-width: 100%; /* Ensures the image is responsive and does not overflow its container */
+  height: auto; /* Maintains the aspect ratio of the image */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow around the image */
+  border-radius: 10px; /* Optional: Adds rounded corners to the image */
+  transition: opacity 100ms ease-in-out;
+  opacity: 0; /* Start with images invisible */
+  /* Remove margin: 20px auto; since it's no longer effective with absolute positioning */
+}
+
+.fade-in {
+  opacity: 1;
+  z-index: 1;
+}
+
+.fade-out {
+  opacity: 0;
+  z-index: 1;
+  transition: opacity 0.5s ease-in-out; /* Ensure this matches the .quiz-image for a consistent fade-out */
+}
+
+.slow-fade-in {
+  opacity: 1;
+  z-index: 1;
+  transition: opacity 0.5s ease-in-out; /* Longer duration specifically for image2's fade-in */
+}
+
+
+
+.quiz-question {
+  margin: 20px 0;
+}
+
+.quiz-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+
+.option-button:hover {
+  background-color: #eaeaea;
+}
+
+.quiz-result {
+  margin-top: 20px;
+}
+
+.result-text {
+  font-size: 20px;
+  margin: 10px 0;
+}
+
+.result-text.correct {
+  color: green;
+}
+
+.result-text.wrong {
+  color: red;
+}
+
+.quiz-answer {
+  margin-top: 20px;
+}
+.result-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.animate-result {
+  animation: slideInFromLeft 0.5s ease-out;
+}
+
+.animate-image {
+  animation: slideInFromRight 0.5s ease-out;
+}
+
+.animate-answer {
+  animation: slideInFromLeft 0.5s ease-out;
+}
+
+
+
+.left-arrow, .right-arrow {
+  position: fixed;
+  top: 50%; /* Center vertically */
+  transform: translateY(-50%);
+  background: #007bff; /* Blue background */
+  color: white;
+  border: none;
+  padding: 10px; /* Adjust padding as needed */
+  cursor: pointer;
+  border-radius: 50%; /* Makes the block fully rounded */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px; /* Specify width for a circle */
+  height: 40px; /* Specify height for a circle */
+  bottom: 20px;
+  font-size: 20px;
+}
+.left-arrow {
+  left: 10%;
+}
+.right-arrow {
+  right: 10%;
+}
+body, html {
+  font-family: 'Open Sans', sans-serif;
+}
+
+
+@keyframes slideInFromLeft {
+  from { transform: translateX(-100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInFromRight {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+.quiz-container, .grid-container, .navigation-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeIn 1s ease-in-out;
+}
+.option-button.correct {
+  background-color: #28a745; /* Green for correct */
+  color: white;
+}
+
+.option-button.wrong {
+  background-color: #dc3545; /* Red for wrong */
+  color: white;
+}
+
+/* Ensure the rest of the .option-button styles are defined to maintain a consistent look */
+.option-button {
+  padding: 10px 20px;
+  margin: 5px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.option-button:hover {
+  background-color: #eaeaea;
+}
+.fade-enter {
+  opacity: 0;
+  transform: translateX(100%);
+}
+.fade-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 300ms, transform 300ms;
+}
+.fade-exit {
+  opacity: 1;
+  transform: translateX(0);
+}
+.fade-exit-active {
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: opacity 600ms, transform 600ms;
+}
+/* Enter from the right, exit to the left */
+/* Enter from the right, exit to the left */
+.slide-right-enter, .slide-right-exit-active {
+  transform: translateX(100%);
+}
+.slide-right-enter-active, .slide-right-exit {
+  transform: translateX(0);
+  transition: transform 300ms ease-out;
+}
+
+/* Enter from the left, exit to the right */
+.slide-left-enter, .slide-left-exit-active {
+  transform: translateX(-100%);
+}
+.slide-left-enter-active, .slide-left-exit {
+  transform: translateX(0);
+  transition: transform 300ms ease-out;
+}
+
+
+
+.left-arrow.disabled,
+.right-arrow.disabled {
+  opacity: 0.5; /* Make the button look faded */
+  cursor: not-allowed; /* Change the cursor to indicate the action is not allowed */
+  pointer-events: none; /* Prevent clicking */
+}
+.initial-state {
+  transform: none;
+  opacity: 1;
+  transition: none; /* Disable transition for initial state */
+}
+.events-container {
+  background-color: #f0f0f0; /* A light grey background for the whole container */
+  padding: 20px; /* Add some padding around the entire container */
+}
+
+.event-container {
+  background-color: #fff; /* A white background for each event */
+  border-radius: 8px; /* Rounded corners for the event containers */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* A subtle shadow for depth */
+  margin-bottom: 20px; /* Space between each event */
+  padding: 15px; /* Padding inside each event container */
+  display: flex; /* Use flexbox for layout */
+  align-items: center; /* Align items vertically */
+  gap: 20px; /* Space between flex items */
+}
+
+.event-image.left {
+  height: 150px; /* Height for the first image */
+  width: auto; /* Maintain aspect ratio */
+  flex-shrink: 0; /* Prevent the image from shrinking */
+}
+
+.event-image.right {
+  height: 200px; /* Height for the second image */
+  width: auto; /* Maintain aspect ratio */
+  flex-shrink: 0; /* Prevent the image from shrinking */
+}
+
+.event-info {
+  flex-grow: 1; /* Allow the event info to take up remaining space */
+}
+
+.event-info p {
+  color: #666; /* Lighter text color for the description */
+  line-height: 1.4; /* Improve readability with more line spacing */
+  margin: 10px 0; /* Space above and below the paragraph */
+}
+.dimmed {
+  opacity: 0.5; /* Reduce the opacity to dim the event */
+  background-color: #f0f0f0; /* Optional: change background color to indicate it's passed */
+}
+.nav-button, .option-button, .left-arrow, .right-arrow {
+  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+.nav-button:hover, .option-button:hover, .left-arrow:hover, .right-arrow:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+@media (max-width: 768px) {
+  .labb-container, .event-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+}
+
+/* ProductDetailComponent.css */
+.product-detail-container {
+  background: lightsteelblue; /* Light background for the whole component */
+  padding: 20px;
+  border-radius: 8px; /* Optional: adds rounded corners */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Soft shadow for depth */
+}
+
+.product-detail-row {
+  align-items: center; /* Center align the image and details vertically */
+}
+
+.product-image-col img {
+  max-height: 400px; /* Adjust based on your needs */
+  object-fit: cover; /* Ensures the image covers the area nicely */
+  border-radius: 8px; /* Optional: adds rounded corners to the image */
+}
+
+.product-info-col {
+  background: #ffffff; /* White background for the text area */
+  padding: 20px;
+  border-radius: 8px; /* Consistent rounded corners */
+  margin-top: 20px; /* Adds some space between the image and text on smaller screens */
+}
+
+.product-title {
+  color: #333; /* Dark grey color for the title */
+  margin-bottom: 15px;
+}
+
+.product-description {
+  color: #666; /* Lighter text for the description */
+  line-height: 1.6; /* Improves readability */
+}
+
+.product-video {
+  margin-top: 20px; /* Adds space above the video */
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+  font-size: 2rem;
+  color: #666;
+}
+.logOutButtonStyle {
+  position: fixed;
+  right: 15px;
+  bottom: 15px;
+  cursor: pointer;
+  padding: 10px 20px;
+  background: #007bff;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  text-align: center;
+}
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.spinner {
+  border: 4px solid rgba(0,0,0,.1);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border-left-color: #09f;
+  animation: spin 1s ease infinite;
+  ;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.feedback-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.feedback-item {
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  padding: 15px;
+  margin: 10px 0;
+  width: 80%;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.feedback-id,
+.feedback-suggestion {
+  margin: 5px 0;
+}
+.keyboard-container {
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  z-index: 1000; /* Ensure it's above most other elements */
+  text-align: center; /* Ensure that the content inside is centered */
+}
+
+.keyboard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 10px;
+  background-color: #f0f0f0;
+  box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.key {
+  padding: 10px 15px;
+  margin: 5px;
+  border: none;
+  background-color: #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.key.close, .toggle-button {
+  background-color: #f44336; /* Red for the close button */
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Ensure the toggle-button is styled similar to the close button for consistency */
+.toggle-button {
+  display: inline-block; /* To apply text-align center from the parent */
+  background-color: #4CAF50; /* Green for the open keyboard button */
+  color: white;
+}
+
